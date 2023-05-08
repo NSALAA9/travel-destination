@@ -4,12 +4,12 @@ import Tours from "../tours/Tours";
 import Footer from "../footer/Footer";
 
 
-function Home() {
+function Home(props) {
   return (
     <div>
       <Header />
     
-      <Tours />
+      <Tours data={props.data} />
       <Footer />
     </div>
   );
