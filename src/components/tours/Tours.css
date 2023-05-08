@@ -1,0 +1,22 @@
+.tours {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  .tours h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .tours {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
