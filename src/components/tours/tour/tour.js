@@ -38,7 +38,7 @@ function Tour({ tour }) {
 
 export default Tour;*/
 
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 
 
@@ -73,7 +73,7 @@ function Tour(props) {
 export default Tour;*/
 
 
-function Tour(props) {
+/*function Tour(props) {
     return (
         <>
         <Link to={`/city/${props.tour.id}`}>
@@ -90,4 +90,47 @@ function Tour(props) {
         </>
     )
 }
+export default Tour;*/
+
+
+import React from "react";
+import { Link } from "react-router-dom";
+
+const Tour = ({ tour }) => {
+  return (
+    <Link to={`/city/${tour.id}`} style={styles.link}>
+      <div style={styles.tourContainer}>
+        <h1 style={styles.title}>{tour.name}</h1>
+        <img style={styles.image} src={tour.image} alt={tour.name} />
+      </div>
+    </Link>
+  );
+};
+
 export default Tour;
+
+const styles = {
+  link: {
+    textDecoration: "none",
+  },
+  tourContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "20px",
+    border: "1px solid #ccc",
+    borderRadius: "10px",
+    overflow: "hidden",
+    transition: "box-shadow 0.3s ease",
+    cursor: "pointer",
+  },
+  title: {
+    margin: "10px 0",
+    fontSize: "1.5rem",
+  },
+  image: {
+    width: "100%",
+    height: "auto",
+    marginBottom: "10px",
+  },
+};

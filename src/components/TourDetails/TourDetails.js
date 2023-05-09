@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import data from '../../Data/db.json';
-import './TourDetails.css';
+//import './TourDetails.css';
 
 const TourDetails = (props) => {
   const { id } = useParams();
@@ -43,7 +43,61 @@ const TourDetails = (props) => {
   );
 };
 
+export default TourDetails;*/
+
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import data from '../../Data/db.json';
+
+const TourDetails = (props) => {
+  const { id } = useParams();
+  const tour = props.toursdata.find((tour) => tour.id === id);
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  if (!tour) {
+    return <div>Loading...</div>;
+  }
+
+  const { name, image } = tour;
+
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
+  return (
+    <section style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ marginRight: '20px' }}>
+        <img src={image} alt={name} style={{ width: '400px', height: 'auto' }} />
+      </div>
+      <div>
+        <h2>{name}</h2>
+        <div style={{ marginBottom: '20px' }}>
+          {showFullDescription ? (
+            <p>{tour.info}</p>
+          ) : (
+            <>
+              <p>{tour.info.slice(0, 200)}</p>
+              <button onClick={toggleDescription}>See more</button>
+            </>
+          )}
+          {showFullDescription && (
+            <button onClick={toggleDescription}>See less</button>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default TourDetails;
+
+
+
+
+
+
+
+
 
 
 
